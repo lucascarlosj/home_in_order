@@ -1,0 +1,23 @@
+name: micro_core
+ndescription: A new Flutter package project.
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  micro_dependencies:
+    path: '../micro_dependencies'
+  micro_design_system:
+    path: '../micro_design_system'
+  micro_auth:
+    path: '../micro_auth'
+  micro_home:
+    path: '../micro_home'
+
+flutter:
+  uses-material-design: true
+

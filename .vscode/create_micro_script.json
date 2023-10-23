@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "lib/package_name.dart",
+      "content": "library package_name;"
+    },
+    {
+      "path": "lib/package_name_routes.dart",
+      "content": "library package_name;"
+    },
+    {
+      "path": "pubspec.yaml",
+      "content": "name: package_name\nndescription: A new Flutter package project.\nversion: 0.0.1\npublish_to: 'none'\n\nenvironment:\n  sdk: '>=3.1.0 <4.0.0'\n\ndependencies:\n  flutter:\n    sdk: flutter\n  micro_dependencies:\n    path: '../micro_dependencies'\n  micro_design_system:\n    path: '../micro_design_system'\n\nflutter:\n  uses-material-design: true\n"
+    },
+    {
+      "path": "test/package_name_test.dart",
+      "content": null
+    }
+  ]
+}

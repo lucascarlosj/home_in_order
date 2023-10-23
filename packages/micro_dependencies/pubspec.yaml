@@ -1,0 +1,39 @@
+name: micro_dependencies
+ndescription: A new Flutter package project.
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  brasil_fields: ^1.14.0
+  cached_network_image: ^3.2.3
+  flutter:
+    sdk: flutter
+  animations: ^2.0.8
+  cloud_firestore: ^4.9.3
+  firebase_core: ^2.16.0
+  firebase_analytics: ^10.5.0
+  firebase_auth: ^4.10.1
+  firebase_crashlytics: ^3.3.6
+  firebase_messaging: ^14.6.8
+  firebase_remote_config: ^4.2.7
+  flutter_local_notifications: ^15.1.1
+  google_maps_flutter: ^2.5.0
+  flutter_typeahead: ^4.8.0
+  flutter_google_places: ^0.3.0
+  geocoding: ^2.1.0
+  geolocator: ^10.1.0
+  google_sign_in: ^6.1.5
+  go_router: ^10.1.2
+  m_toast: ^0.2.4
+  pinput: ^3.0.1
+  shimmer: ^3.0.0
+  twilio_phone_verify: ^2.0.0
+  validatorless: ^1.2.3
+  video_player: ^2.7.1
+  flutter_svg: ^2.0.7
+
+flutter:
+  uses-material-design: true
