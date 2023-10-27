@@ -21,7 +21,9 @@ class AuthTokenBottomComponent extends StatelessWidget {
                     InkWell(
                       splashColor: Colors.transparent,
                       highlightColor: Colors.transparent,
-                      onTap: () => context.replaceNamed('/login'),
+                      onTap: () {
+                        context.replaceNamed('/login');
+                      },
                       child: Text(
                         'Faça o login agora',
                         style: TextStyles.linkPrimaryColor,

@@ -1,3 +1,5 @@
+import 'package:micro_auth/features/auth_login/presenter/auth_login_notifier.dart';
+import 'package:micro_core/micro_core.dart';
 import 'package:micro_dependencies/micro_dependencies.dart';
 import 'package:micro_design_system/micro_design_system.dart';
 
@@ -12,6 +14,7 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Injector.of(context).get<AuthLoginNotifier>();
     return CustomPageBuilder.instance
         .withoutScaffold(
           child: Padding(
@@ -61,8 +64,8 @@ class LoginForm extends StatelessWidget {
                   CustomElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        /*  controller.loginWithEmail(
-                          _emailEC.text, _passwordEC.text); */
+                        controller.loginWithEmail(
+                            _emailEC.text, _passwordEC.text);
                       }
                     },
                     label: 'Entrar',

@@ -3,13 +3,11 @@ import 'package:go_router/go_router.dart';
 import 'package:micro_auth/features/auth_forgot/presenter/auth_forgot_page.dart';
 import 'package:micro_auth/features/auth_login/presenter/auth_login_page.dart';
 import 'package:micro_auth/features/auth_signup/presenter/auth_signup_page.dart';
-import 'package:micro_auth/features/auth_token/presenter/auth_token_page.dart';
 
 class MicroAuthRoutes {
   static const login = '/login';
   static const forgot = '/forgot';
   static const signup = '/signup';
-  static const token = '/token';
 
   static MicroAuthRoutes? instance;
 
@@ -39,14 +37,6 @@ class MicroAuthRoutes {
       pageBuilder: (_, state) {
         return MaterialPage(
           child: AuthSignupPage(),
-        );
-      },
-    ),
-    GoRoute(
-      path: token,
-      pageBuilder: (_, state) {
-        return MaterialPage(
-          child: AuthTokenPage(),
         );
       },
     ),

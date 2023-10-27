@@ -1,4 +1,4 @@
-import 'package:micro_auth/features/auth_signup/domain/models/user_location.dart';
+import 'package:micro_auth/features/auth_signup/domain/entities/user_location.dart';
 import 'package:micro_dependencies/micro_dependencies.dart';
 import 'package:micro_design_system/micro_design_system.dart';
 

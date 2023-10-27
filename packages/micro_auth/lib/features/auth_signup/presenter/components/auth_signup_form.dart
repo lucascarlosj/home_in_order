@@ -1,8 +1,8 @@
 import 'package:flutter/services.dart';
-import 'package:micro_auth/features/auth_signup/domain/models/user_location.dart';
+import 'package:micro_auth/features/auth_signup/domain/entities/user_location.dart';
+import 'package:micro_auth/features/auth_signup/presenter/auth_signup_notifier.dart';
 import 'package:micro_auth/features/auth_signup/presenter/components/location/location.dart';
-import 'package:micro_auth/features/auth_token/presenter/auth_token_notifier.dart';
-import 'package:micro_core/config/dependency_injection.dart';
+import 'package:micro_core/micro_core.dart';
 import 'package:micro_dependencies/micro_dependencies.dart';
 import 'package:micro_design_system/micro_design_system.dart';
 
@@ -56,7 +56,7 @@ class _AuthSignupFormState extends State<AuthSignupForm> {
 
   @override
   Widget build(BuildContext context) {
-    final authTokenNotifier = Injector.of(context).get<AuthTokenNotifier>();
+    final controller = Injector.of(context).get<AuthSignupNotifier>();
 
     return CustomPageBuilder.instance
         .withoutScaffold(
@@ -150,10 +150,12 @@ class _AuthSignupFormState extends State<AuthSignupForm> {
                   CustomElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        context.push('/token');
-                        authTokenNotifier.sendOtp(
+                        controller.stepperController.next();
+                        controller.sendOtp(
                           _phoneNumber.text.replaceAll(RegExp(r'[^\d]+'), ''),
                         );
+                        controller.email = _emailEC.text;
+                        controller.password = _passwordEC.text;
                       }
                     },
                     label: 'Continuar',

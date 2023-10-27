@@ -32,6 +32,12 @@ class _AuthLoginPageState extends State<AuthLoginPage>
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _animationController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return CustomPageBuilder.instance
         .withoutAppBar()

@@ -27,6 +27,7 @@ Future<void> start() async {
           child: App(),
         ),
       );
+      microAuthLocator(Injector.instance);
     },
     (error, stack) => FirebaseCrashlytics.instance.recordError(
       error,
@@ -54,8 +55,6 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    final injector = Injector.instance;
-    microAuthInjection(injector);
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: _router,

@@ -2,23 +2,25 @@ import 'package:micro_dependencies/micro_dependencies.dart';
 import 'package:micro_design_system/micro_design_system.dart';
 
 class CustomBackButton extends StatelessWidget {
-  const CustomBackButton(
-      {Key? key,
-      this.heightContainer,
-      this.widthContainer,
-      this.heightIcon,
-      this.widthIcon})
-      : super(key: key);
+  const CustomBackButton({
+    Key? key,
+    this.heightContainer,
+    this.widthContainer,
+    this.heightIcon,
+    this.widthIcon, 
+    this.onTap,
+  }) : super(key: key);
 
   final double? heightContainer;
   final double? widthContainer;
   final double? heightIcon;
   final double? widthIcon;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.pop(),
+      onTap: onTap ?? () => context.pop(),
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 22, horizontal: 12),
         child: Container(

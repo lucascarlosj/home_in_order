@@ -1,46 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:micro_auth/features/auth_login/domain/exceptions/auth_signin_service_exception.dart';
+import 'package:micro_auth/features/auth_login/domain/usecase/auth_login.dart';
+import 'package:micro_core/micro_core.dart';
 
+class AuthLoginNotifier extends ChangeNotifier {
+  final _loginService = Injector.instance.get<AuthLogin>();
 
+  Future<void> loginWithEmail(String email, String password) async {
+    final result = await _loginService.login(email, password);
 
-class AuthLoginNotifier extends ChangeNotifier {}
-
-// Pega todos os usuarios perto da minha localização
-/* // Lista para armazenar usuários dentro do raio de 20 km
-List<Usuario> usuariosProximos = [];
-
-// Calcule a distância entre a localização atual e cada usuário e filtre os usuários
-usuarios.forEach((usuario) {
-  final double kilometers = distance(
-    LatLng(currentLatitude, currentLongitude),
-    LatLng(usuario.latitude, usuario.longitude),
-  ).kilometers;
-
-  print('Distância até ${usuario.nome}: $kilometers km');
-
-  // Se a distância for menor ou igual a 20 km, adicione o usuário à lista de usuários próximos
-  if (kilometers <= 20) {
-    usuariosProximos.add(usuario);
+    switch (result) {
+      case Success():
+        return;
+      case Failure(exception: AuthSignInServiceException(:final message)):
+        throw message;
+    }
   }
-});
 
-// Ordene a lista de usuários próximos pela distância até a localização atual
-usuariosProximos.sort((a, b) {
-  final double distanceA = distance(
-    LatLng(currentLatitude, currentLongitude),
-    LatLng(a.latitude, a.longitude),
-  ).kilometers;
+  Future<void> loginWithGoogle(String email, String password) async {
+    final result = await _loginService.loginWithGoogle(email, password);
 
-  final double distanceB = distance(
-    LatLng(currentLatitude, currentLongitude),
-    LatLng(b.latitude, b.longitude),
-  ).kilometers;
-
-  return distanceA.compareTo(distanceB);
-});
-
-// Imprima os usuários próximos ordenados pela proximidade
-usuariosProximos.forEach((usuario) {
-  print(usuario.nome);
-});
-
- */
+    switch (result) {
+      case Success():
+        return;
+      case Failure(exception: AuthSignInServiceException(:final message)):
+        throw message;
+    }
+  }
+}
