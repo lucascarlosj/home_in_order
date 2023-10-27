@@ -1,26 +1,34 @@
-import 'package:micro_auth/features/auth_login/presenter/components/login_header.dart';
-import 'package:micro_auth/features/auth_login/presenter/components/login_divider.dart';
-import 'package:micro_auth/features/auth_login/presenter/components/login_footer_button.dart';
-import 'package:micro_auth/features/auth_login/presenter/components/login_form.dart';
-import 'package:micro_auth/features/auth_login/presenter/components/login_social_button.dart';
+import 'package:flutter/material.dart';
 import 'package:micro_core/micro_core.dart';
 import 'package:micro_dependencies/micro_dependencies.dart';
 import 'package:micro_design_system/micro_design_system.dart';
 
+import 'components/login_divider.dart';
+import 'components/login_footer_button.dart';
+import 'components/login_form.dart';
+import 'components/login_header.dart';
+import 'components/login_social_button.dart';
+
 class AuthLoginPage extends StatefulWidget {
-  const AuthLoginPage({super.key});
+  const AuthLoginPage({Key? key}) : super(key: key);
 
   @override
-  State<AuthLoginPage> createState() => _AuthLoginPageState();
+  _AuthLoginPageState createState() => _AuthLoginPageState();
 }
 
-class _AuthLoginPageState extends State<AuthLoginPage> {
+class _AuthLoginPageState extends State<AuthLoginPage>
+    with TickerProviderStateMixin {
   final _messagingService = MessagingService();
+  late final AnimationController _animationController;
 
   @override
   void initState() {
     super.initState();
     _messagingService.init(context);
+    _animationController = AnimationController(
+      duration: const Duration(seconds: 5),
+      vsync: this,
+    )..forward(from: 0.0);
   }
 
   @override
@@ -35,12 +43,12 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
                 child: IntrinsicHeight(
                   child: Column(
                     children: [
-                      LoginHeader(),
-                      LoginForm(),
-                      LoginDivider(label: 'ou'),
-                      LoginSocialButton(),
+                      _buildAnimatedItem(LoginHeader(), 0),
+                      _buildAnimatedItem(LoginForm(), 1),
+                      _buildAnimatedItem(LoginDivider(label: 'ou'), 2),
+                      _buildAnimatedItem(LoginSocialButton(), 3),
                       const Spacer(),
-                      LoginFooterButton()
+                      _buildAnimatedItem(LoginFooterButton(), 4)
                     ],
                   ),
                 ),
@@ -49,5 +57,19 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
           ),
         )
         .build();
+  }
+
+  Widget _buildAnimatedItem(Widget child, int delay) {
+    return FadeTransition(
+      opacity: Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
+        parent: _animationController,
+        curve: Interval(
+          delay * 0.2,
+          (delay + 1) * 0.2,
+          curve: Curves.easeIn,
+        ),
+      )),
+      child: child,
+    );
   }
 }
