@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:home_in_order/firebase_options.dart';
+import 'package:micro_auth/micro_auth.dart';
 import 'package:micro_core/micro_core.dart';
 import 'package:micro_dependencies/micro_dependencies.dart';
 
@@ -17,12 +18,15 @@ Future<void> start() async {
       );
       LocalNotificationConfig().initializeNotifications();
       RemoteConfigInit.initialize();
-      FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+      FlutterError.onError =
+          FirebaseCrashlytics.instance.recordFlutterFatalError;
       FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
       await FirebaseMessaging.instance.setAutoInitEnabled(true);
-      var injector = Injector(child: App());
-      injector.init();
-      runApp(injector);
+      runApp(
+        Injector(
+          child: App(),
+        ),
+      );
     },
     (error, stack) => FirebaseCrashlytics.instance.recordError(
       error,
@@ -50,6 +54,8 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
+    final injector = Injector.instance;
+    microAuthInjection(injector);
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: _router,

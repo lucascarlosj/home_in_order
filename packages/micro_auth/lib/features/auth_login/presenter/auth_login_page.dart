@@ -25,8 +25,6 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    //final controller = Injector.of(context).authLoginNotifier;
-
     return CustomPageBuilder.instance
         .withoutAppBar()
         .addBodyChild(

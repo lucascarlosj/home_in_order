@@ -1,34 +1,30 @@
 // ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
-import 'package:micro_auth/features/auth_token/presenter/auth_token_notifier.dart';
-import 'package:micro_auth/micro_auth.dart';
 
 class Injector extends InheritedWidget {
-  late AuthLoginNotifier authLoginNotifier;
-  late AuthSplashNotifier authSplashNotifier;
-  late AuthTokenNotifier authTokenNotifier;
+  final Map<Type, dynamic> _services = {};
 
-  // late OnboardingRepository onboardingRepository;
+  static Injector? _singleton;
 
-  void init() {
-    authLoginNotifier = AuthLoginNotifier();
-    authSplashNotifier = AuthSplashNotifier();
-    authTokenNotifier = AuthTokenNotifier();
-    // getStarred = GetStarredImpl(onboardingRepository: onboardingRepository);
-    // _onboardingNotifier = OnboardingNotifier(
-    //   getUser: getUser,
-    //   getRepos: getRepos,
-    //   getStarred: getStarred,
-    // );
+  factory Injector({Key? key, required Widget child}) {
+    _singleton ??= Injector._internal(child);
+    return _singleton!;
   }
 
-  Injector({
-    Key? key,
-    required Widget child,
-  }) : super(key: key, child: child);
+  Injector._internal(Widget child) : super(child: child);
+
+  static Injector get instance => _singleton!;
+
+  void add<T>(T service) {
+    _services[T] = service;
+  }
+
+  T get<T>() {
+    return _services[T];
+  }
 
   static Injector of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<Injector>() as Injector;
+    return context.dependOnInheritedWidgetOfExactType<Injector>()!;
   }
 
   @override

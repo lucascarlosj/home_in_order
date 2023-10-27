@@ -10,6 +10,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  micro_auth:
+    path: packages/micro_auth
   micro_core:
     path: packages/micro_core
   micro_dependencies:
