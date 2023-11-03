@@ -11,8 +11,7 @@ class AuthState {
       if (user == null) {
         _navigator.router.go('/login');
       } else {
-        _navigator.router.go('/home-contractor');
-        //checkedUser();
+        checkedUser();
       }
     });
   }
@@ -22,8 +21,7 @@ class AuthState {
 
     if (user == null) return;
 
-    final docData = (await _firebaseFirestore.collection('users').doc(user.uid).get())
-            .data()!;
+    final docData = (await _firebaseFirestore.collection('users').doc(user.uid).get()).data()!;
 
     switch (docData['user_type']) {
       case 'provider':
@@ -45,7 +43,7 @@ class AuthState {
         _navigator.router.go('/register-provider-photo');
       }
     } else {
-      _navigator.router.go('/dashboard-provider');
+      _navigator.router.go('/home-provider');
     }
   }
 
@@ -55,7 +53,7 @@ class AuthState {
     if (completeRegistrationData != true && (completeRegistrationData == null || completeRegistrationData == false)) {
         _navigator.router.go('/register-contractor-form');
     } else {
-        _navigator.router.go('/dashboard-contractor');
+        _navigator.router.go('/home-contract');
     }
   }
 }

@@ -32,13 +32,8 @@ class AuthLoginImpl implements AuthLogin {
   }
 
   @override
-  Future<Either<AuthSignInServiceException, UserEntity>> loginWithGoogle(
-    String email,
-    String password,
-  ) async {
-    final loginResult =
-        await _authLoginRepository.loginWithGoogle(email, password);
-
+  Future<Either<AuthSignInServiceException, UserEntity>> loginWithGoogle() async {
+    final loginResult = await _authLoginRepository.loginWithGoogle();
     switch (loginResult) {
       case Success():
         return Success(value: loginResult.value);

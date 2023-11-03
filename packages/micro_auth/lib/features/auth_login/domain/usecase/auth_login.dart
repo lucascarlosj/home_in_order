@@ -7,8 +7,5 @@ abstract interface class AuthLogin {
     String email,
     String password,
   );
-  Future<Either<AuthSignInServiceException, UserEntity>> loginWithGoogle(
-    String email,
-    String password,
-  );
+  Future<Either<AuthSignInServiceException, UserEntity>> loginWithGoogle();
 }

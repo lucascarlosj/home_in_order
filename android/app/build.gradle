@@ -102,6 +102,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.android.gms:play-services-location:19.0.1'
-    implementation("com.google.firebase:firebase-auth-ktx")
     implementation "androidx.browser:browser:1.2.0"
 }

@@ -17,6 +17,9 @@ dependencies:
   micro_dependencies:
     path: packages/micro_dependencies
 
+  flutter_localizations:
+    sdk: flutter
+
 dev_dependencies:
   flutter_lints: ^2.0.2
   flutter_test:

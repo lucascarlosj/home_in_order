@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:micro_auth/micro_auth.dart';
+import 'package:micro_core/micro_core.dart';
 import 'package:micro_design_system/micro_design_system.dart';
 import 'package:micro_design_system/ui/widgets/custom_social_buttons.dart';
 
@@ -7,6 +9,7 @@ class LoginSocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Injector.of(context).get<AuthLoginNotifier>();
     return CustomPageBuilder.instance
         .withoutScaffold(
           child: Padding(
@@ -14,7 +17,7 @@ class LoginSocialButton extends StatelessWidget {
             child: Column(
               children: [
                 CustomSocialButton(
-                  onPressed: () {},
+                  onPressed: () => controller.loginWithGoogle(),
                   iconPath: 'assets/icons/google.svg',
                   label: 'Login com o Google',
                 ),

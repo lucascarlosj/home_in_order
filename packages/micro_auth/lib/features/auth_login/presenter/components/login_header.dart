@@ -1,21 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:micro_design_system/micro_design_system.dart';
 
-class LoginHeader extends StatelessWidget {
+class LoginHeader extends StatefulWidget {
   const LoginHeader({super.key});
+
+  @override
+  State<LoginHeader> createState() => _LoginHeaderState();
+}
+
+class _LoginHeaderState extends State<LoginHeader> {
+  late Image headerEmail;
+
+  initState() {
+    super.initState();
+    headerEmail = Image.asset('assets/images/image_background.jpg');
+  }
+
+  @override
+  void didChangeDependencies() {
+    precacheImage(headerEmail.image, context);
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     return CustomPageBuilder.instance
         .withoutScaffold(
           child: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.transparent,
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage(
-                  'assets/images/image_background.jpg',
-                ),
+                image: headerEmail.image,
               ),
             ),
             height: 300,

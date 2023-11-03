@@ -151,9 +151,9 @@ class _AuthSignupFormState extends State<AuthSignupForm> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         controller.stepperController.next();
-                        controller.sendOtp(
-                          _phoneNumber.text.replaceAll(RegExp(r'[^\d]+'), ''),
-                        );
+                        // controller.sendOtp(
+                        //   _phoneNumber.text.replaceAll(RegExp(r'[^\d]+'), ''),
+                        // );
                         controller.email = _emailEC.text;
                         controller.password = _passwordEC.text;
                       }

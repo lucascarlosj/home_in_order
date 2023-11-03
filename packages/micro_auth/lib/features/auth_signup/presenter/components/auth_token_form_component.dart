@@ -43,8 +43,7 @@ class AuthTokenFormComponent extends StatelessWidget {
                 CustomElevatedButton(
                   label: 'Registrar-se',
                   onPressed: () {
-                    controller.validateOtp(tokenEC.text);
-
+                    // controller.validateOtp(tokenEC.text);
                   },
                 ),
               ],

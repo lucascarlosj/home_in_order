@@ -39,26 +39,3 @@ class AuthSignupRepositoryImpl implements AuthSignupRepository {
     }
   }
 }
-
-
-//  @override
-//   Future<Either<AuthSignInException, UserEntity>> login(
-//     String email,
-//     String password,
-//   ) async {
-//     try {
-//       final UserCredential(:user) =
-//           await _firebaseAuth.signInWithEmailAndPassword(
-//         email: email,
-//         password: password,
-//       );
-
-//       return Success(value: UserEntity.fromFirebaseUser(user!));
-//     } on FirebaseAuthException catch (e, s) {
-//       if (e.code == 'wrong-password') {
-//         return Failure(exception: AuthSignInUnauthorizedException());
-//       }
-//       log('Erro ao realizar login', error: e, stackTrace: s);
-//       return Failure(exception: AuthSignInError(message: 'Erro ao realizar login'));
-//     }
-//   }

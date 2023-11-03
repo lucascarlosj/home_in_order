@@ -26,3 +26,4 @@ export 'package:pinput/pinput.dart';
 export 'package:google_sign_in/google_sign_in.dart';
 export 'package:m_toast/m_toast.dart';
 export 'package:firebase_remote_config/firebase_remote_config.dart';
+export 'package:mocktail/mocktail.dart';

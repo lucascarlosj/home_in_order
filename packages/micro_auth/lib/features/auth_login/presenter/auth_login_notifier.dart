@@ -17,8 +17,8 @@ class AuthLoginNotifier extends ChangeNotifier {
     }
   }
 
-  Future<void> loginWithGoogle(String email, String password) async {
-    final result = await _loginService.loginWithGoogle(email, password);
+  Future<void> loginWithGoogle() async {
+    final result = await _loginService.loginWithGoogle();
 
     switch (result) {
       case Success():
