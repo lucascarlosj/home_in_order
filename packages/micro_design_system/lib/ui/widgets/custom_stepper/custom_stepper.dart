@@ -63,14 +63,10 @@ class _CustomStepperState extends State<CustomStepper> {
         title: Text(
           widget.title,
           style: TextStyle(
-            color: widget
-                    .children[widget.controller.state.value].appbarTextColor ??
-                Colors.black,
+            color: widget.children[widget.controller.state.value].appbarTextColor ??Colors.black,
           ),
         ),
-        backgroundColor: widget.children[widget.controller.state.value]
-                .appbarBackgroundColor ??
-            Colors.transparent,
+        backgroundColor: widget.children[widget.controller.state.value].appbarBackgroundColor ?? Colors.transparent,
         leading: IconButton(
           onPressed: widget.onBack ?? _getAppBarLeadingIconPressed(),
           icon: _getAppBarLeadingIcon(),
@@ -88,8 +84,9 @@ class _CustomStepperState extends State<CustomStepper> {
 
   Icon _getAppBarLeadingIcon() {
     return Icon(
-        widget.controller.state.value == 0 && widget.useCloseIconFirstStep
-            ? Icons.close
-            : Icons.arrow_back);
+      widget.controller.state.value == 0 && widget.useCloseIconFirstStep
+          ? Icons.close
+          : Icons.arrow_back,
+    );
   }
 }

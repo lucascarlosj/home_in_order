@@ -4,5 +4,5 @@ import 'package:micro_core/micro_core.dart';
 
 abstract class AuthLoginRepository {
   Future<Either<AuthSignInException, UserEntity>> login(String email, String password);
-  Future<Either<AuthSignInException, UserEntity>> loginWithGoogle(String email, String password);
+  Future<Either<AuthSignInException, UserEntity>> loginWithGoogle();
 }

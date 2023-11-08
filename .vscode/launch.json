@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "home_in_order",
+            "name": "[Internal] Home in Order",
             "request": "launch",
             "type": "dart",
             "program": "lib/main.dart",
@@ -15,12 +15,6 @@
                 "--target",
                 "lib/main.dart"
             ]
-        },
-        {
-            "name": "home_in_order (profile mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
         },
         {
             "name": "home_in_order (release mode)",

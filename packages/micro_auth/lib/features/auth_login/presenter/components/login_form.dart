@@ -65,7 +65,9 @@ class LoginForm extends StatelessWidget {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         controller.loginWithEmail(
-                            _emailEC.text, _passwordEC.text);
+                          _emailEC.text,
+                          _passwordEC.text,
+                        );
                       }
                     },
                     label: 'Entrar',

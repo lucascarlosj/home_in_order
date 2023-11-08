@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>396505927091-4bmmbds6t1at13gv5hh74bi2hk2qa192.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.396505927091-4bmmbds6t1at13gv5hh74bi2hk2qa192</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>396505927091-ooi17iovl5b6ogk0ldmbt02cq5ho9ktm.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBwap5WSRX49YAgxxaCdO4u-HD2QHECQho</string>
+	<key>GCM_SENDER_ID</key>
+	<string>396505927091</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>br.com.homeinorder.homeInOrder</string>
+	<key>PROJECT_ID</key>
+	<string>home-in-order-v2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>home-in-order-v2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:396505927091:ios:fddb5003e2c0247f374fc6</string>
+</dict>
+</plist>

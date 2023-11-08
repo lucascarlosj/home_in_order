@@ -8,7 +8,6 @@ import 'package:micro_dependencies/micro_dependencies.dart';
 
 class AuthLoginRepositoryImpl implements AuthLoginRepository {
   final _firebaseAuth = FirebaseAuth.instance;
-  final _googleSignIn = GoogleSignIn();
 
   @override
   Future<Either<AuthSignInException, UserEntity>> login(
@@ -28,17 +27,15 @@ class AuthLoginRepositoryImpl implements AuthLoginRepository {
         return Failure(exception: AuthSignInUnauthorizedException());
       }
       log('Erro ao realizar login', error: e, stackTrace: s);
-      return Failure(exception: AuthSignInError(message: 'Erro ao realizar login'));
+      return Failure(
+          exception: AuthSignInError(message: 'Erro ao realizar login'));
     }
   }
 
   @override
-  Future<Either<AuthSignInException, UserEntity>> loginWithGoogle(
-    String email,
-    String password,
-  ) async {
+  Future<Either<AuthSignInException, UserEntity>> loginWithGoogle() async {
     try {
-      final googleUser = await _googleSignIn.signIn();
+      final googleUser = await GoogleSignIn().signIn();
       final googleAuth = await googleUser?.authentication;
 
       if (googleAuth == null) {
@@ -56,7 +53,8 @@ class AuthLoginRepositoryImpl implements AuthLoginRepository {
       return Success(value: UserEntity.fromFirebaseUser(user!));
     } on FirebaseAuthException catch (e, s) {
       log('Erro ao realizar login com o Google', error: e, stackTrace: s);
-      return Failure(exception: AuthSignInError(message: 'Erro ao realizar login'));
+      return Failure(
+          exception: AuthSignInError(message: 'Erro ao realizar login'));
     }
   }
 }
