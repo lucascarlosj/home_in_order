@@ -125,8 +125,8 @@ class _AuthSignupFormState extends State<AuthSignupForm> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        border:
-                            Border.all(color: AppColors.greyBorder, width: 2),
+                        border: Border.all(
+                            color: Colors.grey.withOpacity(0.2), width: 2),
                       ),
                       child: Center(
                         child: Align(

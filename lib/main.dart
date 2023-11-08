@@ -59,6 +59,10 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       routerConfig: _router,
       debugShowMaterialGrid: false,
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        useMaterial3: true,
+      ),
     );
   }
 }

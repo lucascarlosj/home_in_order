@@ -11,7 +11,8 @@ class AuthState {
       if (user == null) {
         _navigator.router.go('/login');
       } else {
-        checkedUser();
+        _navigator.router.go('/home-provider');
+        //checkedUser();
       }
     });
   }
